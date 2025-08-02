@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Genie - Your Book Companion</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f5e4;
+      color: #2b2b2b;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #f2f2f2;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .dark-mode header {
+      background: #222;
+      color: #f2f2f2;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .book {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .book:hover {
+      transform: scale(1.03);
+    }
+
+    .book img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .book h3 {
+      margin: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .book p {
+      margin: 0.3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .dark-mode .book {
+      background: #1e1e1e;
+      color: white;
+    }
+
+    .dark-mode .book p {
+      color: #aaa;
+    }
+
+    .toggle-dark {
+      background: #ffffff22;
+      border: 1px solid white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿 Book Genie</h1>
+    <button class="toggle-dark" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+  </header>
+
+  <section class="container">
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg" alt="Atomic Habits"/>
+      <h3>Atomic Habits</h3>
+      <p>James Clear</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/713jIoMO3UL.jpg" alt="Sapiens"/>
+      <h3>Sapiens</h3>
+      <p>Yuval Noah Harari</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg" alt="The Alchemist"/>
+      <h3>The Alchemist</h3>
+      <p>Paulo Coelho</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg" alt="Harry Potter"/>
+      <h3>Harry Potter</h3>
+      <p>J.K. Rowling</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/81drfTT9ZfL.jpg" alt="It Ends With Us"/>
+      <h3>It Ends With Us</h3>
+      <p>Colleen Hoover</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL.jpg" alt="The Silent Patient"/>
+      <h3>The Silent Patient</h3>
+      <p>Alex Michaelides</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL.jpg" alt="1984"/>
+      <h3>1984</h3>
+      <p>George Orwell</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg" alt="To Kill a Mockingbird"/>
+      <h3>To Kill a Mockingbird</h3>
+      <p>Harper Lee</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/81A-mvlo+QL.jpg" alt="The Book Thief"/>
+      <h3>The Book Thief</h3>
+      <p>Markus Zusak</p>
+    </div>
+    <div class="book">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/81s6DUyQCZL.jpg" alt="Think Like a Monk"/>
+      <h3>Think Like a Monk</h3>
+      <p>Jay Shetty</p>
+    </div>
+  </section>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+
+  <!-- Watson Assistant Chat -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "a87d852e-cbb3-4c39-9c3c-261a68cb426d",
+      region: "au-syd",
+      serviceInstanceID: "73ba8a63-81a3-462d-9115-c9d569143e3d",
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+              (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+              "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+</body>
+</html>
