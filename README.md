@@ -68,9 +68,7 @@ You can learn more here: [Watson Assistant Documentation](https://cloud.ibm.com/
 
 ---
 
-## 📸 Preview
 
-![screenshot](preview.jpg) <!-- Optional: Add a screenshot of your site -->
 
 ---
 
